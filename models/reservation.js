@@ -49,8 +49,8 @@ class Reservation {
     if(this.customerId === undefined)
       this._customerId = val;
     else{
-      const err = new Error(`Customer id cannot be assigned to a new value`);
-      err.status = 422;
+      const err = new Error(`Conflict: customer id cannot be assigned to a new value`);
+      err.status = 409;
       throw err;
     }
   }
