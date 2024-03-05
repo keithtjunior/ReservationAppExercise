@@ -6,12 +6,28 @@ const Reservation = require("./reservation");
 /** Customer of the restaurant. */
 
 class Customer {
+  #_notes;
   constructor({ id, firstName, lastName, phone, notes }) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.phone = phone;
-    this.notes = notes;
+    this.#_notes = notes;
+  }
+
+  /** get a customer's full name. */
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  /** getter to retrieve notes value or */
+  /** an empty string to a falsey notes value*/
+  
+  get notes(){
+    if(!this.#_notes)
+      return ' ';
+    return this.#_notes;
   }
 
   /** find all customers. */
@@ -93,12 +109,6 @@ class Customer {
 
   async getReservations() {
     return await Reservation.getReservationsForCustomer(this.id);
-  }
-
-  /** get a customer's full name. */
-
-  fullName() {
-    return `${this.firstName} ${this.lastName}`;
   }
 
   /** save this customer. */

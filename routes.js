@@ -37,6 +37,7 @@ router.post("/add/", async function(req, res, next) {
     const phone = req.body.phone;
     const notes = req.body.notes;
 
+    debugger;
     const customer = new Customer({ firstName, lastName, phone, notes });
     await customer.save();
 
