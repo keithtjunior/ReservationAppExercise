@@ -60,12 +60,12 @@ class Customer {
       `SELECT id, 
         first_name AS "firstName",  
         last_name AS "lastName" 
-      FROM customers 
-      WHERE lower(first_name) 
-      LIKE lower('%' || $1 || '%')
-      OR lower(last_name) 
-      LIKE lower('%' || $1 || '%')
-      ORDER BY last_name, first_name`,
+       FROM customers 
+       WHERE lower(first_name) 
+       LIKE lower('%' || $1 || '%')
+       OR lower(last_name) 
+       LIKE lower('%' || $1 || '%')
+       ORDER BY last_name, first_name`,
       [name]
     );
     return results.rows.map(c => new Customer(c));
