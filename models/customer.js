@@ -21,8 +21,7 @@ class Customer {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  /** getter to retrieve notes value or */
-  /** an empty string to a falsey notes value*/
+  /** get a customer's notes */
   
   get notes(){
     if(!this.#_notes)
